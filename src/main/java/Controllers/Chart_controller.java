@@ -190,11 +190,14 @@ public class Chart_controller implements Serializable{
         }
     }
     
-    public void onSlideEnd(SlideEndEvent event) {
-        someValue = A1;
-        System.out.println(someValue);
-        
-               
+    public void onSlideEnd(SlideEndEvent event) {        
+       int value = event.getValue();
+//       if(value < 50){
+//           D1+=A1; 
+//       }else{
+//           D1-=A1;
+//       }
+        System.out.println(value);
     }
 
     public int getSomeValue() {
@@ -205,7 +208,7 @@ public class Chart_controller implements Serializable{
         this.someValue = someValue;
     }
 
-    
+
     
     
     public void ddd(){

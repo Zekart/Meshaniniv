@@ -68,10 +68,8 @@ and open the template in the editor.
             <h:outputText value="Организация уникальна по своим особенностям. Она подобна большой семье. Люди выглядят имеющими много общего" />
             <h:panelGrid columns="1" style="margin-bottom: 10px">
                 <p:inputText id="txtA1_n" value="#{chart_controller.a1_n}"  />
-                <p:inputText id="txtA1_nb" value="#{chart_controller.d1}"  />
-                <p:slider for="txtA1_n" type="vertical" display="txtA1_nb">
-                    <p:ajax event="slideEnd" listener="#{chart_controller.onSlideEnd(event)}" />
-                </p:slider>
+                <p:inputText id="txtA1_nb" />
+                <p:slider for="txtA1_n" type="vertical" display="txtA1_nb" onSlideEnd="updateSliderLabel()" /> 
             </h:panelGrid>
             <h:panelGrid columns="1" style="margin-bottom: 10px">
                 <p:inputText id="txtA1_f" value="#{chart_controller.a1}" />
@@ -368,19 +366,15 @@ and open the template in the editor.
         <p:panelGrid columns="5" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
             <p:commandButton style="width: 100%; height: 100%;" actionListener="#{chart_controller.delta()}" action="chart_result.xhtml?faces-redirect=true" value="Результат"></p:commandButton>
         </p:panelGrid>
-        </h:form>            
+        </h:form>   
+<h:form> 
+    <div style="margin-left: 30%;">
+    <h:inputText id="number" value="#{sliderBean.number}" />
+    <p:slider for="number">
+        <p:ajax event="slideEnd" listener="#{sliderBean.onSlideEnd}" update="category" />
+    </p:slider>
+    <h:inputText id="category" value="#{sliderBean.x}" />
+    </div>
+</h:form>       
     </body>
-    
-    <script>
-        function fnc()
-            {
-                var a = document.getElementById("txtA1_n");
-                
-                var b = document.getElementById("txtA1_bn");
-                
-                
-                b.innerHTML = "dfghf"
-                
-            }
-    </script>
 </html>
