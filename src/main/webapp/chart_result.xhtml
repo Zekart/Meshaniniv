@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Результаты</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="main.css" /> 
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+<script type="text/javascript">
+  FusionCharts.ready(function(){
+    var Fusioncharts = new FusionCharts({
+        type: 'radar',
+        renderAt: 'chart-container',
+        width: '550',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Ваш результат",
+                "numberPreffix": "$",
+                "theme": "fint",
+                "radarfillcolor": "#ffffff"
+            },
+            "categories": [{
+                "category": [{
+                    "label": ""
+                }, {
+                    "label": "Клановая"
+                }, {
+                    "label": ""
+                }, {
+                 "label": "Бюрократическая"
+                }, {
+                    "label": ""
+                }, {
+                    "label": "Рыночная"
+                },{
+                    "label":""
+                },{
+                    "label":"Адхократическая"
+                }]
+            }],
+            "dataset": [{
+                "seriesname": "Сейчас",
+                "data": [{
+                    "value": "#{getResult.result.AN}"
+                }, {
+                    "value": "#{getResult.result.BN}"
+                }, {
+                    "value": "#{getResult.result.CN}"
+                }, {
+                    "value": "#{getResult.result.DN}"
+                }]
+            }, {
+                "seriesname": "Предпочтительно",
+                "data": [{
+                    "value": "#{getResult.result.AF}"
+                }, {
+                    "value": "#{getResult.result.BF}"
+                }, {
+                    "value": "#{getResult.result.CF}"
+                }, {
+                    "value": "#{getResult.result.DF}"
+                }]
+            }]
+        }
+    }
+    );
+    var allFusioncharts = new FusionCharts({
+        type: 'radar',
+        renderAt: 'chart-containerAll',
+        width: '550',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Общий результат",
+                "numberPreffix": "$",
+                "theme": "fint",
+                "radarfillcolor": "#ffffff"
+            },
+            "categories": [{
+                "category": [{
+                    "label": ""
+                }, {
+                    "label": "Клановая"
+                }, {
+                    "label": ""
+                }, {
+                 "label": "Бюрократическая"
+                }, {
+                    "label": ""
+                }, {
+                    "label": "Рыночная"
+                },{
+                    "label":""
+                },{
+                    "label":"Адхократическая"
+                }]
+            }],
+            "dataset": [{
+                "seriesname": "Сейчас",
+                "data": [{
+                    "value": "#{getResult.ex_res_n[0]}"
+                }, {
+                    "value": "#{getResult.ex_res_n[1]}"
+                }, {
+                    "value": "#{getResult.ex_res_n[2]}"
+                }, {
+                    "value": "#{getResult.ex_res_n[3]}"
+                }]
+            }, {
+                "seriesname": "Предпочтительно",
+                "data": [{
+                    "value": "#{getResult.ex_res_f[0]}"
+                }, {
+                    "value": "#{getResult.ex_res_f[1]}"
+                }, {
+                    "value": "#{getResult.ex_res_f[2]}"
+                }, {
+                    "value": "#{getResult.ex_res_f[3]}"
+                }]
+            }]
+        }
+    }
+    );
+    Fusioncharts.render();
+    allFusioncharts.render();
+});
+</script>
+
+    </h:head>
+    <body>
+        <h:form>
+        <div id="menuwrapper">
+                <ul id="sidemenu">
+                    <li><a class="noflyout" href="#">
+                            <h:link outcome="home" style="color: white" value="Главная" />
+                        </a></li>
+                    <li><a href="#">Пройти заново</a>
+                        <ul>
+                            <li> 
+                            <h:link outcome="test" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Предыдущие</a>
+                        <ul>
+                            <li>Нету предыдущих тестов
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Результаты</a>
+                        <ul>
+                            <li>
+                                <h:link outcome="chart_result" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+                            </li>
+                        </ul>
+                    </li>                        
+                    <li>
+                        <div>
+                        </div>
+                        <div>
+                            <a class="noflyout selected" href="#">Привет, #{loginController.current.login} Роль:#{loginController.current.role}</a>
+                            <p:commandButton action="index?faces-redirect=true" value="выйти"/>
+                        </div>                        
+                    </li>
+                    
+                </ul>
+        </div>
+        <div>
+            <div id="chart-container" style="margin-left: 20%; width: 400px;">FusionCharts XT will load here!</div>
+            <div id="nowResult" style="color: white;">               
+                <table class="demotbl">
+                    <tr>
+                        <th style="background: transparent;"></th>
+                        <th>Сейчас</th>
+                        <th>Предпочтительно</th>
+                    </tr>
+                    <tr>
+                        <td>Клановая</td>
+                        <td>#{getResult.result.AN}</td>
+                        <td>#{getResult.result.AF}</td>
+                    </tr>
+                    <tr>
+                        <td>Адхократическая</td>
+                        <td>#{getResult.result.BN}</td>
+                        <td>#{getResult.result.BF}</td>
+                    </tr>
+                    <tr>
+                        <td>Рыночная</td>
+                        <td>#{getResult.result.CN}</td>
+                        <td>#{getResult.result.CF}</td>
+                    </tr>
+                    <tr>
+                        <td>Бюрократическая</td>
+                        <td>#{getResult.result.DN}</td>
+                        <td>#{getResult.result.DF}</td>
+                    </tr>                    
+                </table>                            
+            </div>
+            <div id="featuresResult" style="color: red;">
+                <div style="float: left; width: 200px; margin-left: 10px;">
+                <table class="demotbl">
+                    <tr>
+                        <th style="background: transparent;"></th>
+                        <th>Сейчас</th>
+                        <th>Предпочтительно</th>
+                    </tr>
+                    <tr>
+                        <td>Клановая</td>
+                        <td>#{getResult.ex_res_n[0]}</td>
+                        <td>#{getResult.ex_res_f[0]}</td>
+                    </tr>
+                    <tr>
+                        <td>Адхократическая</td>
+                        <td>#{getResult.ex_res_n[1]}</td>
+                        <td>#{getResult.ex_res_f[1]}</td>
+                    </tr>
+                    <tr>
+                        <td>Рыночная</td>
+                        <td>#{getResult.ex_res_n[2]}</td>
+                        <td>#{getResult.ex_res_f[2]}</td>
+                    </tr>
+                    <tr>
+                        <td>Бюрократическая</td>
+                        <td>#{getResult.ex_res_n[3]}</td>
+                        <td>#{getResult.ex_res_f[3]}</td>
+                    </tr>                    
+                </table>               
+                </div>
+                <div style="float: left; width: 200px; margin-left: 150px;">
+                    <table class="demotbl">
+                        <tr>
+                            <th style="background: transparent;"></th>
+                            <th>Кол-во.</th>
+                        </tr>
+                        <tr>
+                            <td>Студент</td>
+                            <td>#{getResult.people[0]}</td>
+                        </tr>
+                        <tr>
+                            <td>Аспирант</td>
+                            <td>#{getResult.people[1]}</td>
+                        </tr>
+                        <tr>
+                            <td>Ассистент</td>
+                            <td>#{getResult.people[2]}</td>
+                        </tr>
+                        <tr>
+                            <td>Доцент</td>
+                            <td>#{getResult.people[3]}</td>
+                        </tr>   
+                        <tr>
+                            <td>Профессор</td>
+                            <td>#{getResult.people[4]}</td>
+                        </tr>                         
+                    </table>                     
+                </div>               
+            </div>
+            <div id="chart-containerAll" style="margin-left: 20%; margin-top: 40px;width: 400px;">FusionCharts XT will load here!</div>     
+
+        </div>            
+        </h:form>
+    </body>
+</html>

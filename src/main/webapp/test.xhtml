@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Тест</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="main.css" /> 
+        <h:outputStylesheet library="css" name="test.css" /> 
+    </h:head>
+    <body>
+        <h:form id="test_form">
+        <div id="menuwrapper">
+                <ul id="sidemenu">
+                    <li><a class="noflyout" href="#">
+                        <h:link outcome="home" style="color: white" value="Главная" />
+                        </a></li>
+                    <li><a href="#">Пройти заново</a>
+                        <ul>
+                            <li> 
+                            <h:link outcome="test" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Предыдущие</a>
+                        <ul>
+                            <li> Нету предыдущих тестов
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Результаты</a>
+                        <ul>
+                            <li>
+                                <h:link outcome="chart_result" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+                            </li>
+                        </ul>
+                    </li>                        
+                    <li>
+                        <div>
+                        </div>
+                        <div>
+                            <a class="noflyout selected" href="#">Привет, #{loginController.current.login} Роль:#{loginController.current.role}</a>
+                            <p:commandButton action="index?faces-redirect=true" value="выйти"/>
+                        </div>                        
+                    </li>
+                </ul>
+        </div>
+        <div>
+            
+        </div>
+
+
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="1. Важнейшие характеристики" />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Организация уникальна по своим особенностям. Она подобна большой семье. Люди выглядят имеющими много общего" />
+            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                <p:inputText id="txtA1_n" value="#{chart_controller.a1_n}"  />
+                <p:inputText id="txtA1_nb" value="#{chart_controller.d1}"  />
+                <p:slider for="txtA1_n" type="vertical" display="txtA1_nb">
+                    <p:ajax event="slideEnd" listener="#{chart_controller.onSlideEnd(event)}" />
+                </p:slider>
+            </h:panelGrid>
+            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                <p:inputText id="txtA1_f" value="#{chart_controller.a1}" />
+                <p:slider for="txtA1_f" type="vertical" />
+            </h:panelGrid>
+
+            <h:outputText value="C" />
+            <h:outputText value="Организация ориентирована на результат. Главная забота – добиться выполнения задания. Люди ориентированы на соперничество и достижение поставленной цели  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC1_n" value="#{chart_controller.c1_n}" />
+                    <p:slider for="txtC1_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC1_f" value="#{chart_controller.c1}" />
+                    <p:slider for="txtC1_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+            <h:outputText value="Организация очень динамична и проникнута предпринимательством. Люди готовы жертвовать собой и идти на риск " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB1_n" value="#{chart_controller.b1_n}" />
+                    <p:slider for="txtB1_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB1_f" value="#{chart_controller.b1}" />
+                    <p:slider for="txtB1_f" />
+                </h:panelGrid>    
+            <h:outputText value="D" />
+            <h:outputText value="Организация жестко структурирована и строго контролируется. Действия людей, как правило, определяются формальными процедурами " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD1_n" value="#{chart_controller.d1_n}" />
+                    <p:slider for="txtD1_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD1_f" value="#{chart_controller.d1}" />
+                    <p:slider for="txtD1_f" />
+                </h:panelGrid>           
+        </p:panelGrid>
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="2. Общий стиль лидерства в организации" />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Общий стиль лидерства в организации представляет собой пример мониторинга, стремления помочь или научить " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA2_n" value="#{chart_controller.a2_n}" />
+                    <p:slider for="txtA2_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA2_f" value="#{chart_controller.a2}" />
+                    <p:slider for="txtA2_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="C" />
+            <h:outputText value="Общий стиль лидерства в организации служит примером деловитости, наступательности, ориентации на результат  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB2_n" value="#{chart_controller.b2_n}" />
+                    <p:slider for="txtB2_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB2_f" value="#{chart_controller.b2}" />
+                    <p:slider for="txtB2_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+            <h:outputText value="Общий стиль лидерства в организации служит примером предпринимательства, новаторства и склонности к риску  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC2_n" value="#{chart_controller.c2_n}" />
+                    <p:slider for="txtC2_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC2_f" value="#{chart_controller.c2}" />
+                    <p:slider for="txtC2_f" />
+                </h:panelGrid>    
+
+            <h:outputText value="D" />
+            <h:outputText value="Общий стиль лидерства в организации являет собой пример координации, четкой организации или плавного ведения дел" />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD2_n" value="#{chart_controller.d2_n}" />
+                    <p:slider for="txtD2_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD2_f" value="#{chart_controller.d2}" />
+                    <p:slider for="txtD2_f" />
+                </h:panelGrid>           
+        </p:panelGrid>
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="3. Управление работниками " />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Стиль руководства в организации характеризуется поощрением совместной деятельности, единодушия и участия коллектива в принятии решений " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA3_n" value="#{chart_controller.a3_n}" />
+                    <p:slider for="txtA3_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA3_f" value="#{chart_controller.a3}" />
+                    <p:slider for="txtA3_f" />
+                </h:panelGrid>
+
+            <h:outputText value="C" />
+                        <h:outputText value="Стиль руководства в организации характеризуется высокой требовательностью, жестким стремлением к конкурентоспособности и поощрением достижений " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB3_n" value="#{chart_controller.b3_n}" />
+                    <p:slider for="txtB3_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB3_f" value="#{chart_controller.b3}" />
+                    <p:slider for="txtB3_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+            <h:outputText value="Стиль руководства в организации характеризуется поощрением индивидуального риска, новаторства, свободы и самобытности каждого " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC3_n" value="#{chart_controller.c3_n}" />
+                    <p:slider for="txtC3_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC3_f" value="#{chart_controller.c3}" />
+                    <p:slider for="txtC3_f" />
+                </h:panelGrid>    
+
+            <h:outputText value="D" />
+            <h:outputText value="Стиль руководства в организации характеризуется гарантией занятости, требованием подчинения, предсказуемости и стабильности в отношениях " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD3_n" value="#{chart_controller.d3_n}" />
+                    <p:slider for="txtD3_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD3_f" value="#{chart_controller.d3}" />
+                    <p:slider for="txtD3_f" />
+                </h:panelGrid>           
+        </p:panelGrid>
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="4. Связующая сущность организации " />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Организацию связывают воедино преданность делу и взаимное доверие. Обязательность является главным качеством организации " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA4_n" value="#{chart_controller.a4_n}" />
+                    <p:slider for="txtA4_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA4_f" value="#{chart_controller.a4}" />
+                    <p:slider for="txtA4_f" />
+                </h:panelGrid>
+
+            <h:outputText value="C" />
+            <h:outputText value="Организацию связывает воедино акцент на достижении цели и выполнении задачи. Общепринятые темы – наступательность и победа   " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB4_n" value="#{chart_controller.b4_n}" />
+                    <p:slider for="txtB4_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB4_f" value="#{chart_controller.b4}" />
+                    <p:slider for="txtB4_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+                        <h:outputText value="Организацию связывают воедино приверженность новаторству и совершенствованию. Акцентируется необходимость быть на передовых рубежах  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC4_n" value="#{chart_controller.c4_n}" />
+                    <p:slider for="txtC4_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC4_f" value="#{chart_controller.c4}" />
+                    <p:slider for="txtC4_f" />
+                </h:panelGrid>    
+
+            <h:outputText value="D" />
+            <h:outputText value="Организацию связывают воедино формальные правила и официальная политика. Важно поддержание плавного хода деятельности организации  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD4_n" value="#{chart_controller.d4_n}" />
+                    <p:slider for="txtD4_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD4_f" value="#{chart_controller.d4}" />
+                    <p:slider for="txtD4_f" />
+                </h:panelGrid>           
+        </p:panelGrid>
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="5. Стратегические цели" />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Организация заостряет внимание на поддержании высокого доверия, открытости и соучастия " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA5_n" value="#{chart_controller.a5_n}" />
+                    <p:slider for="txtA5_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA5_f" value="#{chart_controller.a4}" />
+                    <p:slider for="txtA5_f" />
+                </h:panelGrid>
+
+            <h:outputText value="C" />
+            <h:outputText value="Организация акцентирует внимание на обретении новых ресурсов и решении новых проблем. Ценятся пробы нового и изыскания новых возможностей  " />
+                        <h:outputText value="Организация акцентирует внимание на конкурентных действиях и достижениях. Доминирует целевое напряжение сил и стремление к победе на рынке предоставления аналогичных услуг " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB5_n" value="#{chart_controller.b5_n}" />
+                    <p:slider for="txtB5_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB5_f" value="#{chart_controller.b4}" />
+                    <p:slider for="txtB5_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+            
+            <h:outputText value="Организация акцентирует внимание на конкурентных действиях и достижениях. Доминирует целевое напряжение сил и стремление к победе на рынке предоставления аналогичных услуг " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC5_n" value="#{chart_controller.c5_n}" />
+                    <p:slider for="txtC5_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC5_f" value="#{chart_controller.c4}" />
+                    <p:slider for="txtC5_f" />
+                </h:panelGrid>    
+
+            <h:outputText value="D" />
+            <h:outputText value="Организация акцентирует внимание на неизменности и стабильности. Важнее всего контроль и плавность ведения дел  " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD5_n" value="#{chart_controller.d5_n}" />
+                    <p:slider for="txtD5_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD5_f" value="#{chart_controller.d4}"  />
+                    <p:slider for="txtD5_f"   />
+                </h:panelGrid>           
+        </p:panelGrid>  
+        <p:panelGrid columns="4" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <h:outputText value="" />
+            <h:outputText value="6.  Критерии успеха" />
+            <h:outputText value="Теперь" />
+            <h:outputText value="Предпочтительно" />
+            
+            <h:outputText value="A" />
+            <h:outputText value="Организация определяет успех на базе развития человеческих ресурсов,бригадной работы, увлеченности
+                    наемных работников делом и заботой о людях " />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA6_n" value="#{chart_controller.a5_n}" />
+                    <p:slider for="txtA6_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtA6_f" value="#{chart_controller.a4}" />
+                    <p:slider for="txtA6_f" />
+                </h:panelGrid>
+
+            <h:outputText value="C" />
+            <h:outputText value="Организация определяет успех на базе победы на рынке и опережении
+конку                               рентов. Ключ успеха — конкурентное лидерство на рынке" />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB6_n" value="#{chart_controller.b5_n}" />
+                    <p:slider for="txtB6_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtB6_f" value="#{chart_controller.b4}" />
+                    <p:slider for="txtB6_f" />
+                </h:panelGrid>
+            
+            <h:outputText value="B" />
+            <h:outputText value="Организация определяет успех на базе обладания уникальной или новейшей продукцией. Это производственный лидер и новатор" />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC6_n" value="#{chart_controller.c5_n}" />
+                    <p:slider for="txtC6_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtC6_f" value="#{chart_controller.c4}" />
+                    <p:slider for="txtC6_f" />
+                </h:panelGrid>    
+
+            <h:outputText value="D" />
+            <h:outputText value="Организация определяет успех на базе рентабельности. Успех определяют
+надеж                               ная поставка, гладкие планы-графики и низкие производственные затраты" />
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD6_n" value="#{chart_controller.d5_n}" />
+                    <p:slider for="txtD6_n" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText id="txtD6_f" value="#{chart_controller.d4}"  />
+                    <p:slider for="txtD6_f"   />
+                </h:panelGrid>           
+        </p:panelGrid>        
+        <p:panelGrid columns="5" style="width: 60%; margin-left: 20%; margin-top: 2%; text-align: center" >
+            <p:commandButton style="width: 100%; height: 100%;" actionListener="#{chart_controller.delta()}" action="chart_result.xhtml?faces-redirect=true" value="Результат"></p:commandButton>
+        </p:panelGrid>
+        </h:form>            
+    </body>
+    
+    <script>
+        function fnc()
+            {
+                var a = document.getElementById("txtA1_n");
+                
+                var b = document.getElementById("txtA1_bn");
+                
+                
+                b.innerHTML = "dfghf"
+                
+            }
+    </script>
+</html>

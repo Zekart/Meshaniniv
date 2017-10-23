@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Типология К. Камерона и Р. Куинна</title>
+            </f:facet>
+            <h:outputStylesheet library="css" name="main.css" /> 
+            <style>
+                body {
+                    font-family:Arial;
+                    font-size:12px;
+                    margin-top:0px;
+                    background-image: url("http://www.tawanda.co.uk/images/business-consultancy.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-attachment: fixed;
+           
+                }
+            </style>
+        </h:head>
+
+        <h:body>
+            <div id="menuwrapper">
+                    <ul id="sidemenu">
+                        <li><a class="noflyout" href="#">
+                                <h:link outcome="home" style="color: white" value="Главная" />
+                            </a></li>
+                        <li><a href="#">Пройти тест</a>
+                            <ul>
+                                <li> 
+                                <h:link outcome="test" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Предыдущие</a>
+                            <ul>
+                                <li> 
+                                    Нету предыдущих тестов
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Результаты</a>
+                            <ul>
+                                <li>
+                                    <h:link outcome="chart_result" style="color: white" value="Типология К. Камерона и Р. Куинна" />
+                                </li>
+                            </ul>
+                        </li>                        
+                    <li>
+                        <div>
+                        </div>
+                        <div>
+                            <a class="noflyout selected" href="#">Привет, #{loginController.current.login} Роль:#{loginController.current.role}</a>
+                            <p:commandButton action="index?faces-redirect=true" value="выйти"/>
+                        </div>                        
+                    </li>
+                    </ul>
+            </div>
+            <div style="background: white; width: 80%; height: 400px; margin-left: 10%; opacity: 0.8; margin-top: 200px;">
+                <h:form>
+                    <h1>
+                        Типология К. Камерона и Р. Куинна
+                    </h1>
+                    <p>Эта типология одна из самых известных типологий организационной культуры. В ее основе лежит рамочная конструкция конкурирующих ценностей, разработка которой подкреплялась исследованием главных индикаторов эффективных организаций. Было выявлено 39 индикаторов, составивших исчерпывающий набор измерителей организационной эффективности. Каждый индикатор подвергся статистическому анализу, что позволило выделить два главных измерения гибкость—стабильность и внутренний фокус—внешний фокус. Оба измерения образуют четыре квадрата, каждый из которых соответствует своим представлениям об эффективности, ценностях, стилях руководства, и образуют свою культуру. Таким образом, выделяют четыре вида культуры: иерархическая (бюрократическая), рыночная, клановая, адхократическая .
+
+                        Важно отметить, что ни в одной организации вы не увидите какой-либо из типов в чистом виде, обычно в компании присутствуют все четыре типа.</p>
+                
+                </h:form>
+            </div>
+        </h:body>
+    </f:view>
+</html>
+
